@@ -1,0 +1,183 @@
+.form-modal {
+  background-image: url("../resources/images/logos/Logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 120px;
+}
+
+.form {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.form p:before {
+  content: attr(type);
+  display: block;
+  margin: 28px 0 0;
+  font-size: 14px;
+  color: #5a5a5a;
+}
+
+/*Estilos para el de contacto*/
+.horizontal-contacto {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#nombre-contacto,
+#email-contacto {
+  width: 45%;
+}
+
+/*Estilos para el de registrar*/
+.horizontal {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ubicacion {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 28px 0 0;
+  border-bottom: 2px solid #bebed2;
+}
+
+.cboProvincia,
+.cboCanton,
+.cboDistrito {
+  margin-bottom: 35px;
+  width: 30%;
+  border: 1px solid maroon;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.cboProvincia,
+.cboCanton,
+.cboDistrito :focus {
+  outline: none;
+}
+
+#nombre,
+#apellidos,
+#dtpFechaNacimiento,
+#email {
+  width: 45%;
+}
+
+#contrasena,
+#confirmarContrasena {
+  width: 45%;
+}
+
+.radios {
+  width: 45%;
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 2px solid #bebed2;
+  margin: 28px 0 0;
+}
+
+.checkboxs {
+  width: 45%;
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 2px solid #bebed2;
+  margin: 28px 0 0;
+}
+
+.selectores label,
+input {
+  display: flex;
+  justify-content: space-around;
+}
+
+h2 {
+  margin: 0;
+  padding-bottom: 10px;
+  color: #78788c;
+  border-bottom: 3px solid #78788c;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  outline: none;
+  resize: none;
+  border: 0;
+  transition: all 0.3s;
+  border-bottom: 2px solid #bebed2;
+}
+
+input:focus {
+  border-bottom: 2px solid #78788c;
+}
+
+.button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  background: maroon;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.button:hover {
+  scale: 1.05;
+}
+
+@media (max-width: 768px) {
+  .horizontal {
+    flex-direction: column;
+  }
+
+  #titulo {
+    text-align: center;
+  }
+
+  #nombre,
+  #apellidos,
+  #dtpFechaNacimiento,
+  #email {
+    width: auto;
+  }
+
+  #contrasena,
+  #confirmarContrasena {
+    width: auto;
+  }
+
+  .horizontal-contacto {
+    flex-direction: column;
+  }
+
+  #nombre-contacto,
+  #email-contacto {
+    width: 100%;
+  }
+
+  .ubicacion {
+    flex-direction: column;
+  }
+
+  .cboProvincia,
+  .cboCanton,
+  .cboDistrito {
+    width: 100%;
+  }
+
+  .radios {
+    width: 100%;
+  }
+
+  .checkboxs {
+    width: 100%;
+  }
+}

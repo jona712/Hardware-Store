@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferreteria AJ</title>
+
+    <!-- hoja de estilos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- script -->
+    <script src="script/script.js"></script>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+
+    <!--jQuery y jQuery UI -->
+    <!-- estilos de jQuery y jQuery UI -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+
+    <!-- script de jQuery y jQuery UI-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+    <!--*****************************************************************************-->
+
+</head>       
+
+<body>
+    <main>
+        <header>
+            <!-- Logo -->
+            <a class="logoFerreteria" href="index.html"> <img src="resources/images/logos/Logo."></a>
+
+            <!-- Filtro de busqueda -->
+            <div class="filtro-busqueda">
+                <input type="text" id="filtro" onkeyup="filtrar()" placeholder="Buscar...">
+
+                <ul id="listaElementos" style="display: none;">
+
+                    <!-- Secciones del home -->
+                    <li><a id="ir a" onclick="LimpiarFiltro()" href="#catalogo">Catalogo</a></li>
+                    <li><a id="ir a" onclick="LimpiarFiltro()" href="#productos">Productos</a></li>
+                    <li><a id="ir a" onclick="LimpiarFiltro()" href="#herramientas">Herramientas</a></li>
+                    <li><a id="ir a" onclick="LimpiarFiltro()" href="#maquinas">Maquinas</a></li>
+                    <li><a id="ir a" onclick="LimpiarFiltro()" href="#materiales">Materiales</a></li>
+                    <li><a id="ir a" onclick="LimpiarFiltro()" href="#servicios">Servicios</a></li>
+
+                    <!-- Productos -->
+
+                    <!-- Herramientas -->
+                    <li><a id="ir a" onclick="LimpiarFiltro()" href="#martillo">Martillo</a></li>
+                    <li><a id="ir a" onclick="LimpiarFiltro()" href="#cintaMetrica">Cinta Métrica</a></li>
+                    <li><a id="ir a" onclick="LimpiarFiltro()" href="#nivel">Nivel</a></li>
+                    <li><a id="ir a" onclick="LimpiarFiltro()" href="#alicate">Alicate</a></li>
+                    <li><a id="ir a" onclick="LimpiarFiltro()" href="#desatornillador">Desatornillador</a></li>
+
+                    <!-- Maquinas -->
+                    <li><a id="ir a" onclick="LimpiarFiltro()" href="#taladro">Taladro</a></li>
+                    <li><a id="ir a" onclick="LimpiarFiltro()" href="#metabo">Metabo</a></li>
+                    <li><a id="ir a" onclick="LimpiarFiltro()" href="#sierra">Sierra</a></li>
+                    <li><a id="ir a" onclick="LimpiarFiltro()" href="#lijadora">Lijadora</a></li>
+                    <li><a id="ir a" onclick="LimpiarFiltro()" href="#hidrolavadora">Hidrolavadora</a></li>
+
+                    <!-- Materiales -->
+                    <li><a id="ir a" onclick="LimpiarFiltro()" href="#cemento">Cemento 50kg</a></li>
+                    <li><a id="ir a" onclick="LimpiarFiltro()" href="#platinaHierro">Platina de Hierro</a></li>
+                    <li><a id="ir a" onclick="LimpiarFiltro()" href="#maderaLaurel">Madera Laurel</a></li>
+                    <li><a id="ir a" onclick="LimpiarFiltro()" href="#zincOndulado">Zinc ondulado</a></li>
+                    <li><a id="ir a" onclick="LimpiarFiltro()" href="#zincOnduladoRojo">Zinc ondulado rojo</a></li>
+                </ul>
+            </div>
+
+            <!-- Botón para desplegar el carrito de compras -->
+            <div class="carrito-compras">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#cartDropdown"
+                    aria-controls="cartDropdown" aria-expanded="false" aria-label="Toggle Cart">
+                    <i class="bi bi-cart-fill"></i>
+                </button>
+                <img src="resources/images/iconos/carrito-compras.png" alt="" onclick="hacerVisibleCarrito()">
+
+            </div>
+
+            <!-- Carrito de Compras -->
+            <div class="carrito" id="carrito">
+                <div class="header-carrito">
+                    <h2>Carrito</h2>
+                </div>
+                <div class="carrito-scroll">
+                    <div class="carrito-items"></div>
+                </div>
+                <div class="carrito-total">
+                    <div class="fila">
+                        <strong>Total</strong>
+                        <span class="carrito-precio-total">
+                            ¢0,00
+                        </span>
+                    </div>
+                    <button class="btn-pagar">Pagar <i class="fa-solid fa-bag-shopping"></i> </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- barra navegacion -->
+        <nav class="navbar navbar-expand-lg custom-nav">
+            <div class="container-fluid">
+                <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <!-- Icono de Font Awesome en color blanco -->
+                    <i class="fas fa-bars text-white"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a id="custom-nav-link" class="nav-link active text-white" aria-current="page"
+                                href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a id="custom-nav-link" class="nav-link dropdown-toggle text-white" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Productos
+                            </a>
+                            <ul id="custom-dropdown-menu" class="dropdown-menu">
+                                <li><a id="custom-nav-link" class="dropdown-item text-white"
+                                        href="#herramientas">Herramientas</a>
+                                </li>
+                                <li><a id="custom-nav-link" class="dropdown-item text-white"
+                                        href="#maquinas">Maquinas</a></li>
+                                <li><a id="custom-nav-link" class="dropdown-item text-white"
+                                        href="#materiales">Materiales</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a id="custom-nav-link" class="nav-link dropdown-toggle text-white" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Servicios
+                            </a>
+                            <ul id="custom-dropdown-menu" class="dropdown-menu">
+                                <li><a id="custom-nav-link" class="dropdown-item text-white"
+                                        onclick="mostrarHorarios()">Servicio al cliente</a>
+                                </li>
+                                <li><a id="custom-nav-link" class="dropdown-item text-white" data-bs-toggle="modal"
+                                        data-bs-target="#formSignUp">Registrarse</a></li>
+                                <li><a id="custom-nav-link" class="dropdown-item text-white"
+                                        onclick="mostrarPedidos()">Pedidos</a>
+                                </li>                                
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a id="custom-nav-link" class="nav-link text-white"
+                                href="secciones/historia.html">Historia</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="custom-nav-link" class="nav-link text-white" data-bs-toggle="modal"
+                                data-bs-target="#formContact">Contacto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="custom-nav-link" class="nav-link text-white"
+                                href="secciones/nosotros.html">Nosotros</a>
+                        </li>
+                        <li>
+                            <a id="custom-nav-link" class="nav-link text-white"
+                                href="secciones/autores.html">Autores</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Modal Contactenos -->
+        <div class="modal fade" id="formContact" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog centered-modal">
+                <div class="modal-content">
+                    <div class="modal-header form-modal">
+
+                    </div>
+                    <div class="modal-body"><!--style="background-color: #e6e6e6;"-->
+                        <form action="https://formsubmit.co/jonnanpais90@gmail.com" method="POST" class="form">
+                            <h2 id="titulo">Contacto</h2>
+                            <div class="horizontal-contacto">
+
+                                <p id="nombre-contacto"><input type="text" name="Nombre" placeholder="Nombre"
+                                        required="Ingrese su nombre"></input>
+                                </p>
+
+                                <p id="email-contacto"><input type="email" name="Correo electrónico"
+                                        placeholder="someone@example.com" required="Ingrese su correo"></input></p>
+                            </div>
+
+                            <p><input type="text" name="Mensaje" placeholder="Mensaje"
+                                    required="Ingrese el mensaje a enviar"></input></p>
+
+                            <input class="button" type="submit" value="Enviar Mensaje"></input>
+
+                            <input type="hidden" name="_next" value="https://ferreteria-aj.netlify.app/">
+
+                            <input type="hidden" name="_captcha" value="false">
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="formSignUp" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog  centered-modal">
+                <div class="modal-content">
+                    <div class="modal-header form-modal">
+
+                    </div>
+                    <div class="modal-body"><!--style="background-color: #e6e6e6;"-->
+                        <form class="form">
+                            <h2 id="titulo">Registrarse</h2>
+                            <div class="horizontal">
+                                <p id="nombre"><input type="text" name="nombreRegistro" placeholder="Nombre"></p>
+                                <p id="apellidos"><input type="text" name="apellidosRegistro" placeholder="Apellidos">
+                                </p>
+                            </div>
+                            <div class="horizontal">
+                                <p id="dtpFechaNacimiento"><input type="date" name="dtpFechaNacimiento"
+                                        placeholder="Fecha de nacimiento"></p>
+                                <p id="email"><input type="email" name="correoRegistro"
+                                        placeholder="someone@example.com"></p>
+                            </div>
+                            <div class="horizontal">
+                                <div class="ubicacion">
+                                    <select id="cboProvincia" class="cboProvincia" required="">
+                                        <option value="" disabled selected hidden>Provincia</option>
+
+                                    </select>
+
+                                    <select class="cboCanton" required="">
+                                        <option value="" disabled selected hidden>Cantón</option>
+
+                                    </select>
+
+                                    <select class="cboDistrito" required="">
+                                        <option value="" disabled selected hidden>Distrito</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="horizontal">
+                                <div class="radios">
+
+                                    <div class="selectores">
+                                        <label for="rdbMasculino">Masculino</label>
+                                        <p><input id="rdbMasculino" type="radio" name="rdbGenero"></p>
+                                    </div>
+
+                                    <div class="selectores">
+                                        <label for="rdbFemenino">Femenino</label>
+                                        <p><input id="rdbFemenino" type="radio" name="rdbGenero"></p>
+                                    </div>
+                                </div>
+
+                                <div class="checkboxs">
+                                    <div class="selectores">
+                                        <label for="chkColegio">Colegio</label>
+                                        <p><input id="chkColegio" type="checkbox" name="chkColegio"></p>
+                                    </div>
+                                    <div class="selectores">
+                                        <label for="chkUniversidad">Universidad</label>
+                                        <p><input id="chkUniversidad" type="checkbox" name="chkUniversidad"></p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="horizontal">
+                                <p id="contrasena"><input type="password" name="contrasena" placeholder="Contraseña">
+                                </p>
+                                <p id="confirmarContrasena"><input type="password" name="confirmarContrasena"
+                                        placeholder="Confirmar contraseña"></p>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="button" type="button" onclick="guardarDatosRegistro()">Registrarse</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- aside -->
+        <aside id="catalogo">
+            <div id="carouselExampleIndicators" class="carousel slide">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                        class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="resources/images/catalogo/catalogo1.jpg" class="d-block w-100" alt="...">
+                    </div>
+
+                    <div class="carousel-item">
+                        <img src="resources/images/catalogo/catalogo3.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="resources/images/catalogo/catalogo4.jpg" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- article -->
+        <article class="articulo">
+
+            <!-- todos los productos -->
+            <h3 class="label-titulo" id="productos">Productos</h3>
+
+            <!-- Seccion de herramientas -->
+            <h3 class="label-subtitulo" id="herramientas">Herramientas</h3>
+
+            <section class="carousel">
+                <div class="contenedor">
+                    <!-- Contenedor de elementos -->
+                    <div class="contenedor-items">
+                        <div class="item" id="martillo">
+                            <a class="producto-index" href="products/herramientas/martillo.html">
+                                <span class=" titulo-item">Martillo</span>
+                                <img src="resources/images/productos/herramientas/martiilo.jpg" alt="Martillo"
+                                    class="img-item">
+                                <span class="precio-item">¢3,210 IVAI</span>
+                            </a>
+                            <button class="boton-item">Agregar al Carrito</button>
+                        </div>
+                        <div class="item" id="cintaMetrica">
+                            <a class="producto-index" href="products/herramientas/cinta.html">
+                                <span class=" titulo-item">Cinta Métrica</span>
+                                <img src="resources/images/productos/herramientas/cinta metrica.jpg" alt="Cinta Métrica"
+                                    class="img-item">
+                                <span class="precio-item">¢1,490 IVAI</span>
+                            </a>
+                            <button class="boton-item">Agregar al Carrito</button>
+                        </div>
+                        <div class="item" id="nivel">
+                            <a class="producto-index" href="products/herramientas/nivel.html">
+                                <span class="titulo-item">Nivel</span>
+                                <img src="resources/images/productos/herramientas/nivel.jpg" alt="Nivel"
+                                    class="img-item">
+                                <span class="precio-item">¢1,800 IVAI</span>
+
+                            </a>
+                            <button class="boton-item">Agregar al Carrito</button>
+
+                        </div>
+                        <div class="item" id="alicate">
+                            <a href="products/herramientas/alicate.html" class="producto-index">
+                                <span class="titulo-item">Alicate</span>
+                                <img src="resources/images/productos/herramientas/alicate.jpg" alt="Alicate"
+                                    class="img-item">
+                                <span class="precio-item">¢1,920 IVAI</span>
+
+                            </a>
+                            <button class="boton-item">Agregar al Carrito</button>
+
+                        </div>
+                        <div class="item" id="desatornillador">
+                            <a href="products/herramientas/desatornillador.html" class="producto-index">
+                                <span class="titulo-item">Desatornillador</span>
+                                <img src="resources/images/productos/herramientas/desatornillador.jpg"
+                                    alt="Desatornillador" class="img-item">
+                                <span class="precio-item">¢805 IVAI</span>
+
+                            </a>
+                            <button class="boton-item">Agregar al Carrito</button>
+                        </div>
+                    </div>
+            </section>
+
+
+            <!-- Seccion de maquinas electricas -->
+            <h3 class="label-subtitulo" id="maquinas">Maquinas</h3>
+
+            <section class="carousel">
+                <div class="contenedor">
+                    <!-- Contenedor de elementos -->
+                    <div class="contenedor-items">
+                        <div class="item" id="taladro">
+                            <a href="products/maquinas/taladro.html" class="producto-index">
+                                <span class="titulo-item">Taladro</span>
+                                <img src="resources/images/productos/maquinas/taladro.jpg" alt="Taladro"
+                                    class="img-item">
+                                <span class="precio-item">¢55,410 IVAI</span>
+
+                            </a>
+                            <button class="boton-item">Agregar al Carrito</button>
+                        </div>
+                        <div class="item" id="metabo">
+                            <a href="products/maquinas/metabo.html" class="producto-index">
+                                <span class="titulo-item">Metabo</span>
+                                <img src="resources/images/productos/maquinas/metabo.jpg" alt="Metabo" class="img-item">
+                                <span class="precio-item">¢82,410 IVAI</span>
+
+                            </a>
+                            <button class="boton-item">Agregar al Carrito</button>
+                        </div>
+                        <div class="item" id="sierra">
+                            <a href="products/maquinas/sierra.html" class="producto-index">
+                                <span class="titulo-item">Sierra</span>
+                                <img src="resources/images/productos/maquinas/cierra.jpg" alt="sierra" class="img-item">
+                                <span class="precio-item">¢46,950 IVAI</span>
+
+                            </a>
+                            <button class="boton-item">Agregar al Carrito</button>
+                        </div>
+                        <div class="item" id="lijadora">
+                            <a href="products/maquinas/lijadora.html" class="producto-index"> <span
+                                    class="titulo-item">Lijadora</span>
+                                <img src="resources/images/productos/maquinas/lijadora.jpg" alt="Lijadora"
+                                    class="img-item">
+                                <span class="precio-item">¢24,900 IVAI</span>
+
+                            </a>
+                            <button class="boton-item">Agregar al Carrito</button>
+                        </div>
+                        <div class="item" id="hidrolavadora">
+                            <a href="products/maquinas/hidrolavadora.html" class="producto-index">
+                                <span class="titulo-item">Hidrolavadora</span>
+                                <img src="resources/images/productos/maquinas/hidrolavadora.jpg" alt="Hidrolavadora"
+                                    class="img-item">
+                                <span class="precio-item">¢62,450 IVAI</span>
+
+                            </a>
+                            <button class="boton-item">Agregar al Carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- seccion de materiales de costruccion -->
+            <h3 class="label-subtitulo" id="materiales">Materiales</h3>
+
+            <section class="carousel">
+                <div class="contenedor">
+                    <!-- Contenedor de elementos -->
+                    <div class="contenedor-items">
+                        <div class="item" id="cemento">
+                            <a href="products/materiales/cemento.html" class="producto-index">
+                                <span class="titulo-item">Cemento 50kg</span>
+                                <img src="resources/images/productos/materiales/cemento.jpg" alt="Cemento"
+                                    class="img-item">
+                                <span class="precio-item">¢7,200 IVAI</span>
+
+                            </a>
+                            <button class="boton-item">Agregar al Carrito</button>
+                        </div>
+                        <div class="item" id="platinaHierro">
+                            <a href="products/materiales/platinaHierro.html" class="producto-index">
+                                <span class="titulo-item">Platina de hierro</span>
+                                <img src="resources/images/productos/materiales/plantina de hierro.jpg"
+                                    alt="Platina de Hierro" class="img-item">
+                                <span class="precio-item">¢1,586 IVAI</span>
+
+                            </a>
+                            <button class="boton-item">Agregar al Carrito</button>
+                        </div>
+                        <div class="item" id="maderaLaurel">
+                            <a href="products/materiales/maderaLaurel.html" class="producto-index">
+                                <span class="titulo-item">Madera laurel</span>
+                                <img src="resources/images/productos/materiales/madera.jpg" alt="Madera laurel"
+                                    class="img-item">
+                                <span class="precio-item">¢1,121 IVAI</span>
+
+                            </a>
+                            <button class="boton-item">Agregar al Carrito</button>
+                        </div>
+                        <div class="item" id="zincOndulado">
+                            <a href="products/materiales/zincOndulado.html" class="producto-index">
+                                <span class="titulo-item">Zinc ondulado</span>
+                                <img src="resources/images/productos/materiales/zinc ondulado.jpg" alt="Zinc ondulado"
+                                    class="img-item">
+                                <span class="precio-item">¢6,976 IVAI</span>
+                            </a>
+                            <button class="boton-item">Agregar al Carrito</button>
+
+                        </div>
+                        <div class="item" id="zincOnduladoRojo">
+                            <a href="products/materiales/zincOnduladoRojo.html" class="producto-index">
+                                <span class="titulo-item">ZINC ONDULADO ROJO</span>
+                                <img src="resources/images/productos/materiales/zinc rojo2.jpg"
+                                    alt="Zinc rectangular rojo" class="img-item">
+                                <span class="precio-item">¢12,088 IVAI</span>
+                            </a>
+                            <button class="boton-item">Agregar al Carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </article>
+
+        <h3 class="label-titulo" id="servicios">Servicios</h3>
+        <section class="seccion-servicios">
+
+            <div class="contenedor-servicio" id="servicio-cliente">
+                <div class="contenedor-servicio">
+                    <div class="contenedor-imagen">
+                        <img src="resources/images/iconos/servicio-cliente.png" alt="Imagen">
+                    </div>
+                    <div class="contenedor-texto">
+                        <h2>Servicio al cliente</h2>
+                        <p>Consulta horarios de servicio</p>
+                    </div>
+
+                </div>
+                <a onclick="mostrarHorarios()" class="mas-informacion">Más información</a>
+            </div>
+
+            <div class="contenedor-servicio" id="registrarse">
+                <div class="contenedor-servicio">
+                    <div class="contenedor-imagen">
+                        <img src="resources/images/iconos/registrarse.png" alt="Imagen">
+                    </div>
+                    <div class="contenedor-texto">
+                        <h2>Registrarse</h2>
+                        <p>Accede al formulario en linea para más beneficios</p>
+                    </div>
+                </div>
+                <a class="mas-informacion" data-bs-toggle="modal" data-bs-target="#formSignUp" href="">Más
+                    información</a>
+            </div>
+
+            <div class="contenedor-servicio" id="pedidos">
+                <div class="contenedor-servicio">
+                    <div class="contenedor-imagen">
+                        <img src="resources/images/iconos/contacto.png" alt="Imagen">
+                    </div>
+                    <div class="contenedor-texto">
+                        <h2>Pedidos</h2>
+                        <p>Realiza tus pedidos por llamada telefonica</p>
+                    </div>
+                </div>
+                <a class="mas-informacion" onclick="mostrarPedidos()">Más información</a>
+            </div>
+
+        </section>
+
+        <!-- footer -->
+        <footer class="footer">
+            <div class="author-section">
+                <div class="author">
+                    <h3>Jonnan Pais</h3>
+                </div>
+                <div class="author">
+                    <h3>Alexander Azofeifa</h3>
+                </div>
+            </div>
+            <nav class="footer-nav">
+                <a href="#">Inicio</a>
+                <a href="#productos">Productos</a>
+                <a href="#servicios">Servicios</a>
+                <a href="secciones/historia.html">Historia</a>
+                <a id="custom-nav-link" class="nav-link text-white" data-bs-toggle="modal"
+                    data-bs-target="#formContact">Contacto</a>
+                <a href="secciones/nosotros.html">Nosotros</a>
+                <a href="secciones/autores.html">Autores</a>
+            </nav>
+            <div class="social-icons">
+                <a href="#"><img src="resources/images/iconos/facebook-footer.png" alt="Facebook"></a>
+                <a href="#"><img src="resources/images/iconos/instagram-footer.png" alt="Twitter"></a>
+                <a href="#"><img src="resources/images/iconos/whatsapp-footer.png" alt="Instagram"></a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Tu Sitio Web. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+
+    </main>
+
+    <script src="script/form.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferreteria AJ</title>
+
+    <!-- Mi hoja de estilos -->
+    <!-- css -->
+    <link rel="stylesheet" href="../css y js/css/producto.css">
+    <link rel="stylesheet" href="../../css/form.css">
+
+    <!-- Mi hoja script -->
+    <!-- js -->
+    <script src="../../script/form.js"></script>
+    <script src="../../script/script.js"></script>
+    <script src="../css y js/script/producto.js"></script>
+    <!--*****************************************************************************-->
+
+    <!-- Bootstrap -->
+    <!-- estilos de  Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- script de Bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+
+    <!--*****************************************************************************-->
+
+    <!--jQuery y jQuery UI -->
+    <!-- estilos de jQuery y jQuery UI -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+
+    <!-- script de jQuery y jQuery UI-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+    <!--*****************************************************************************-->
+
+</head>
+
+<body>
+    <main>
+        <header>
+            <!-- Logo -->
+            <a class="logoFerreteria" href="../../index.html"> <img src="../../resources/images/logos/Logo.png"></a>
+        </header>
+
+        <!-- barra navegacion -->
+        <nav class="navbar navbar-expand-lg custom-nav">
+            <div class="container-fluid">
+                <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <!-- Icono de Font Awesome en color blanco -->
+                    <i class="fas fa-bars text-white"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a id="custom-nav-link" class="nav-link active text-white" aria-current="page"
+                                href="../../index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a id="custom-nav-link" class="nav-link dropdown-toggle text-white" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Productos
+                            </a>
+                            <ul id="custom-dropdown-menu" class="dropdown-menu">
+                                <li><a id="custom-nav-link" class="dropdown-item text-white"
+                                        href="../../index.html">Herramientas</a>
+                                </li>
+                                <li><a id="custom-nav-link" class="dropdown-item text-white"
+                                        href="../../index.html">Maquinas</a></li>
+                                <li><a id="custom-nav-link" class="dropdown-item text-white"
+                                        href="../../index.html">Materiales</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a id="custom-nav-link" class="nav-link dropdown-toggle text-white" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Servicios
+                            </a>
+                            <ul id="custom-dropdown-menu" class="dropdown-menu">
+                                <li><a id="custom-nav-link" class="dropdown-item text-white"
+                                        onclick="mostrarHorarios()">Servicio al cliente</a>
+                                </li>
+                                <li><a id="custom-nav-link" class="dropdown-item text-white" data-bs-toggle="modal"
+                                        data-bs-target="#formSignUp">Registrarse</a></li>
+                                <li><a id="custom-nav-link" class="dropdown-item text-white"
+                                        onclick="mostrarPedidos()">Pedidos</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a id="custom-nav-link" class="nav-link text-white"
+                                href="../../secciones/historia.html">Historia</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="custom-nav-link" class="nav-link text-white" data-bs-toggle="modal"
+                                data-bs-target="#formContact">Contacto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="custom-nav-link" class="nav-link text-white"
+                                href="../../secciones/nosotros.html">Nosotros</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+        <!-- Modal Contactenos -->
+        <div class="modal fade" id="formContact" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog centered-modal">
+                <div class="modal-content">
+                    <div class="modal-header form-modal">
+
+                    </div>
+                    <div class="modal-body"><!--style="background-color: #e6e6e6;"-->
+                        <form action="https://formsubmit.co/jonnanpais90@gmail.com" method="POST" class="form">
+                            <h2 id="titulo">Contacto</h2>
+                            <div class="horizontal-contacto">
+
+                                <p id="nombre-contacto"><input type="text" name="Nombre" placeholder="Nombre"
+                                        required="Ingrese su nombre"></input>
+                                </p>
+
+                                <p id="email-contacto"><input type="email" name="Correo electrónico"
+                                        placeholder="someone@example.com" required="Ingrese su correo"></input></p>
+                            </div>
+
+                            <p><input type="text" name="Mensaje" placeholder="Mensaje"
+                                    required="Ingrese el mensaje a enviar"></input></p>
+
+                            <input class="button" type="submit" value="Enviar Mensaje"></input>
+
+                            <input type="hidden" name="_next" value="https://ferreteria-aj.netlify.app/">
+
+                            <input type="hidden" name="_captcha" value="false">
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="formSignUp" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog  centered-modal">
+                <div class="modal-content">
+                    <div class="modal-header form-modal">
+
+                    </div>
+                    <div class="modal-body"><!--style="background-color: #e6e6e6;"-->
+                        <form class="form">
+                            <h2 id="titulo">Registrarse</h2>
+                            <div class="horizontal">
+                                <p id="nombre"><input type="text" name="nombreRegistro" placeholder="Nombre"></p>
+                                <p id="apellidos"><input type="text" name="apellidosRegistro" placeholder="Apellidos">
+                                </p>
+                            </div>
+                            <div class="horizontal">
+                                <p id="dtpFechaNacimiento"><input type="date" name="dtpFechaNacimiento"
+                                        placeholder="Fecha de nacimiento"></p>
+                                <p id="email"><input type="email" name="correoRegistro"
+                                        placeholder="someone@example.com"></p>
+                            </div>
+                            <div class="horizontal">
+                                <div class="ubicacion">
+                                    <select id="cboProvincia" class="cboProvincia" required="">
+                                        <option value="" disabled selected hidden>Provincia</option>
+
+                                    </select>
+
+                                    <select class="cboCanton" required="">
+                                        <option value="" disabled selected hidden>Cantón</option>
+
+                                    </select>
+
+                                    <select class="cboDistrito" required="">
+                                        <option value="" disabled selected hidden>Distrito</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="horizontal">
+                                <div class="radios">
+
+                                    <div class="selectores">
+                                        <label for="rdbMasculino">Masculino</label>
+                                        <p><input id="rdbMasculino" type="radio" name="rdbGenero"></p>
+                                    </div>
+
+                                    <div class="selectores">
+                                        <label for="rdbFemenino">Femenino</label>
+                                        <p><input id="rdbFemenino" type="radio" name="rdbGenero"></p>
+                                    </div>
+                                </div>
+
+                                <div class="checkboxs">
+                                    <div class="selectores">
+                                        <label for="chkColegio">Colegio</label>
+                                        <p><input id="chkColegio" type="checkbox" name="chkColegio"></p>
+                                    </div>
+                                    <div class="selectores">
+                                        <label for="chkUniversidad">Universidad</label>
+                                        <p><input id="chkUniversidad" type="checkbox" name="chkUniversidad"></p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="horizontal">
+                                <p id="contrasena"><input type="password" name="contrasena" placeholder="Contraseña">
+                                </p>
+                                <p id="confirmarContrasena"><input type="password" name="confirmarContrasena"
+                                        placeholder="Confirmar contraseña"></p>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="button" type="button" onclick="guardarDatosRegistro()">Registrarse</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- article -->
+
+        <h3 class="label-titulo" id="productos">Producto</h3>
+
+        <article class="seccion-producto">
+            <div class="contenedor-items">
+                <div class="item">
+                    <div class="contenedor-imagen">
+                        <img class="img-item" src="../../resources/images/productos/herramientas/desatornillador.jpg"
+                            alt="Imagen">
+                    </div>
+
+                    <div class="contenedor-texto">
+                        <h4 class="titulo-item">DESTORNILLADOR PHILLIPS 3/16X4" HS28PH1100</h4>
+
+                        <li class="caracteristicas-item">Cód: 7100063</li>
+                        <li class="caracteristicas-item">Presentación: UND</li>
+                        <li class="caracteristicas-item">Marca: INGCO</li>
+
+                        <h5 class="precio-item">¢805 IVAI</h5>
+
+                        <div class="contenedor-botones">
+                            <button id="botonCompra" class="btnComprar" onclick="confirmarCompra()">Comprar</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </article>
+
+        <div id="dialog-confirm" style="display: none;">
+            <p>¿Estás seguro de que deseas comprar este artículo?</p>
+        </div>
+
+        <!-- footer -->
+        <footer class="footer">
+            <div class="author-section">
+                <div class="author">
+                    <h3>Jonnan Pais</h3>
+                </div>
+                <div class="author">
+                    <h3>Alexander Azofeifa</h3>
+                </div>
+            </div>
+            <nav class="footer-nav">
+                <a href="../../index.html">Inicio</a>
+                <a href="../../index.html">Productos</a>
+                <a href="../../index.html">Servicios</a>
+                <a href="../../secciones/historia.html">Historia</a>
+                <a id="custom-nav-link" class="nav-link text-white" data-bs-toggle="modal"
+                    data-bs-target="#formContact">Contacto</a>
+                <a href="../../secciones/nosotros.html">Nosotros</a>
+            </nav>
+            <div class="social-icons">
+                <a href="#"><img src="../../resources/images/iconos/facebook-footer.png" alt="Facebook"></a>
+                <a href="#"><img src="../../resources/images/iconos/instagram-footer.png" alt="Twitter"></a>
+                <a href="#"><img src="../../resources/images/iconos/whatsapp-footer.png" alt="Instagram"></a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Tu Sitio Web. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+
+    </main>
+
+
+</body>
+
+</html>
