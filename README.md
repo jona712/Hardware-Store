@@ -2,7 +2,7 @@
 
 The "Ferretería AJ" website is an informative.
 
-## Description
+## Description 
 
 The "Ferretería AJ" website, developed in Visual Studio Code using HTML, CSS, and JavaScript, acts as an informative platform showcasing the hardware store's products, prices, opening hours, and location through the Google Maps API. Additionally, it offers historical insights, a gallery section, and enables email contact for inquiries, providing users with a comprehensive resource to explore the store's offerings and services.
 
